@@ -1,12 +1,33 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Home</router-link>
     </div>
+    <MediaPlayer :soundFileName="soundFileName"/>    
     <router-view/>
   </div>
 </template>
+
+<script>
+/* global bus */
+
+import MediaPlayer from "@/components/MediaPlayer.vue";
+
+export default {
+  name: "App",
+  data: function() {
+    return {
+      soundFileName: false
+    };
+  },
+  components: {
+    MediaPlayer
+  },
+  mounted() {
+    bus.$on("play", soundFileName => (this.soundFileName = soundFileName));
+  }
+};
+</script>
 
 <style lang="scss">
 #app {

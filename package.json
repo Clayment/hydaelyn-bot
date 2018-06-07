@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "discord.js": "^11.3.2",
+    "node-opus": "^0.3.0",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },
